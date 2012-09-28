@@ -2,6 +2,7 @@ package controllers
 
 import play.api._
 import play.api.mvc._
+import play.api.libs.json.Json._
 import play.api.data._
 import play.api.data.Forms._
 
@@ -31,6 +32,11 @@ object Projects extends Controller with Secured {
   }
 
   // -- Projects
+
+ def getByUsername(username: String) = Action {
+   Ok(toJson(Project.findInvolving(username)))
+ }
+
 
   /**
    * Add a project.
@@ -120,4 +126,3 @@ object Projects extends Controller with Secured {
   }
 
 }
-

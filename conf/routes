@@ -22,6 +22,8 @@ PUT     /projects/:project                  controllers.Projects.rename(project:
 
 POST    /projects/:project/team             controllers.Projects.addUser(project: Long)
 DELETE  /projects/:project/team             controllers.Projects.removeUser(project: Long)
+
+GET     /projects/:username                 controllers.Projects.getByUsername(username: String)
              
 # Tasks                      
 GET     /projects/:project/tasks            controllers.Tasks.index(project: Long)
@@ -32,6 +34,8 @@ DELETE  /tasks/:task                        controllers.Tasks.delete(task: Long)
 POST    /tasks/folder                       controllers.Tasks.addFolder
 DELETE  /projects/:project/tasks/folder     controllers.Tasks.deleteFolder(project: Long, folder: String)
 PUT     /project/:project/tasks/folder      controllers.Tasks.renameFolder(project: Long, folder: String)
+
+GET     /tasks/:username                    controllers.Tasks.getByUsername(username: String)
 
 # Javascript routing
 GET     /assets/javascripts/routes          controllers.Application.javascriptRoutes

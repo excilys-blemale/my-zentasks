@@ -1,6 +1,7 @@
 package controllers
 
 import play.api._
+import libs.json.Json._
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
@@ -37,6 +38,10 @@ object Tasks extends Controller with Secured {
   )
 
   // -- Tasks
+
+  def getByUsername(username: String) = Action {
+    Ok(toJson(Task.findTodoInvolving(username).map(_._1)))
+  }
 
   /**
    * Create a task in this project.
