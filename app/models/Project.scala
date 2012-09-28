@@ -14,7 +14,7 @@ case class Project(id: Pk[Long], folder: String, name: String)
 
 object Project {
   implicit object ProjectFormat extends Format[Project] {
-    def reads(json: JsValue): Project = Project(Id((json \ "id").as[Long]), (json \ "folder").as[String], (json \ "name").as[String])
+    def reads(json: JsValue): Project = throw new UnsupportedOperationException
 
     def writes(p: Project): JsValue = JsObject(List("id" -> JsNumber(p.id.get), "folder" -> JsString(p.folder), "name" -> JsString(p.name)))
   }
